@@ -16,5 +16,8 @@ CREATE TABLE Desejos
 (
 	idDesejo INT PRIMARY KEY IDENTITY,
 	idUsuario INT FOREIGN KEY REFERENCES Usuarios(idUsuario),
-	descricao TEXT NOT NULL
+	descricao TEXT NOT NULL,
+	dataDesejo DATE NOT NULL
 )
+
+
