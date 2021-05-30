@@ -88,9 +88,8 @@ class ListaDeDesejos extends Component {
   render() {
     return (
       <body>
-        <section>
+        <section className="topo">
           <div className="hamburger"><i className="fa fa-bars"></i></div>
-
           <div className="center-header">
             <div className="header-topo">
               <div className="logo">
@@ -101,8 +100,42 @@ class ListaDeDesejos extends Component {
           </div>
         </section>
 
-</body>
-)
-}
+        <section className="centro-main">
+          <div className="center-main">
+            <div className="central">
+              <div className="meus-desejos">
+                <p>Meus desejos</p>
+              </div>
+            </div>{/*roxinho*/}
+
+            <div className="azul-imputs">
+              <form action="wish">
+                <h2>Adicionar novo desejo</h2>
+
+                <div className="inputs">
+                  <p>SEU EMAIL</p>
+                  <input type="text" className="inputt" name="fname" placeholder="email@exemplo.com"/>
+
+                  <div className="inputs-bottom">
+                    <div className="descricao">
+                      <p>DESCRIÇÃO</p>
+                      <input type="text" className="inputt" name="fname"/>
+                    </div>
+
+                    <div className="data">
+                      <p>DATA</p>
+                      <input type="text" className="inputt" name="fname" placeholder="00/00/0000"/>
+                    </div>
+
+                    <img src={select} alt="select icone" className="select"/>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </section>
+      </body>
+    )
+  }
 }
 export default ListaDeDesejos;

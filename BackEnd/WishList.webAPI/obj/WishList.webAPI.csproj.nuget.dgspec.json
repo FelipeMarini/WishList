@@ -1,25 +1,21 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Felipe\\OneDrive\\Área de Trabalho\\WishList\\BackEnd\\WishList.webAPI\\WishList.webAPI.csproj": {}
+    "C:\\Users\\Maria\\OneDrive\\Área de Trabalho\\WishList\\BackEnd\\WishList.webAPI\\WishList.webAPI.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Felipe\\OneDrive\\Área de Trabalho\\WishList\\BackEnd\\WishList.webAPI\\WishList.webAPI.csproj": {
+    "C:\\Users\\Maria\\OneDrive\\Área de Trabalho\\WishList\\BackEnd\\WishList.webAPI\\WishList.webAPI.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Felipe\\OneDrive\\Área de Trabalho\\WishList\\BackEnd\\WishList.webAPI\\WishList.webAPI.csproj",
+        "projectUniqueName": "C:\\Users\\Maria\\OneDrive\\Área de Trabalho\\WishList\\BackEnd\\WishList.webAPI\\WishList.webAPI.csproj",
         "projectName": "WishList.webAPI",
-        "projectPath": "C:\\Users\\Felipe\\OneDrive\\Área de Trabalho\\WishList\\BackEnd\\WishList.webAPI\\WishList.webAPI.csproj",
-        "packagesPath": "C:\\Users\\Felipe\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Felipe\\OneDrive\\Área de Trabalho\\WishList\\BackEnd\\WishList.webAPI\\obj\\",
+        "projectPath": "C:\\Users\\Maria\\OneDrive\\Área de Trabalho\\WishList\\BackEnd\\WishList.webAPI\\WishList.webAPI.csproj",
+        "packagesPath": "C:\\Users\\Maria\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Maria\\OneDrive\\Área de Trabalho\\WishList\\BackEnd\\WishList.webAPI\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"
-        ],
         "configFilePaths": [
-          "C:\\Users\\Felipe\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+          "C:\\Users\\Maria\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net5.0"
