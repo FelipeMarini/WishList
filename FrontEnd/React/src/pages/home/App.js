@@ -1,105 +1,108 @@
 import { Component } from 'react';
+import editar from './img/editar.svg'
+import excluir from './img/excluir.svg'
+import logo from './img/logo.svg'
+import select from './img/select.svg'
+import tipografia from './img/tipografia.svg'
 import './App.css';
 
-class Desejos extends Component{
-  constructor(props){
-    super(props)
+class ListaDeDesejos extends Component {
+  constructor(props) {
+    super(props);
     this.state = {
-        //nomeEstado : valorInicial
-        listaDesejo : 0,
-        descricao : '',
-        idListaAlterado : 0
+
+      listaDesejo: [],
+      descricaoUser: '',
+      idUser: 0
     }
   }
-}
-buscarDesejos = () => {
-  console.log('agora vamos fazer a chamada para a API')
 
-  fetch('https://localhost:5000/api/wishlist')
-  
-  .then(resposta => resposta.json())
+  buscarDesejo = () => {
 
-  .then(dados => this.setState({listaDesejo : dados }))
+    fetch('http://localhost:5000/api/desejo')
 
-  .catch(erro => console.log(erro))
-}
+      .then(reposta => reposta.json())
 
+      .then(dados => this.setState({ listaDesejo: dados }))
 
-cadastrarDesejo = (event) => {
-  event.preventDefault();
-  if (this.state.idListaAlterado !== 0){
-    fetch('http://localhost:5000/api/wishlist' + this.state.idListaAlterado, {
-      method : 'PUT',
-      body : JSON.stringify({descricaoDesejo : this.state.descricao}),
-      headers : {
-      "Content-Type" : "aplication/json"
-      }
-    })
-  
-  
-    .then(resposta =>{
-      if (resposta.status == 204){
-        console.log(
-          'Desejo' + this.state.idListaAlterado + 'atualizado!',
-          'Seu desejo é:' + this.state.descricao
-        )
-      }
-    })
-  
-  .then(this.buscarDesejos)
-  .then(this.limparCampos)
+      .catch(error => console.log(error))
   }
-  else
-  {
-    fetch('http://localhost:5000/api/wishlist', {
-      method : 'POST',
 
-      body : JSON.stringify( { descricaoDesejo : this.state.descricao} ),
+  Limpar = () => {
+    this.setState({
+      descricaoUser: '',
+      idUser: 0
+    })
+  }
 
-      headers : {
-        "Content-Type" : "application/json"
-      }
-    
-  })
-  .then(console.log('Desejo cadastrado!'))
+  Cadastrar = (event) => {
+    event.preventDefault()
 
-        .catch(erro => console.log(erro))
+    let publi = {
+      descricao: this.state.descricaoUser,
+      idUsuario: this.state.idUser
 
-        .then(this.buscarDesejos)
-
-        .then(this.limparCampos)
     }
-}
 
+    console.log(this.state.idUser)
+    console.log(this.state.descricaoUser)
+    fetch('http://localhost:5000/api/desejo', {
+      method: 'POST',
+      body: JSON.stringify(publi),
+      headers: { 'Content-Type': 'application/json' }
+    })
+      .then(resultado => {
+        if (resultado.status === 201) {
+          console.log("Cadastrado")
+        }
+      })
 
-  excluirDesejo = (desejo) => {
-    console.log('O tipo de Evento ' + desejo.idDesejo + ' foi selecionado!')
-    
-    fetch('http://localhost:5000/api/wishlist' + desejo.idDesejo, {
-      method : 'DELETE'
-    })
-    .then(resposta => {
-      if (resposta.status === 204) {
-        console.log('Desejo' + desejo.idDesejo + 'excluído!')
-      }
-    })
-  
-    .catch(erro => console.log(erro))
-    .then(this.buscarDesejos)
+      .catch(error => console.log(error))
+
+      .then(this.buscarDesejo)
+
+      .then(this.Limpar)
   }
 
+  atualizaDescricao = async (event) => {
+    await this.setState({ descricaoUser: event.target.value })
 
-limparCampos = () => {
-  this.setState({
-      descricao : '',
-      idListaAlterado : 0
-  })
-  // Exibe no console do navegador a mensagem 'Os states foram resetados!
-  console.log('Os desejos foram resetados!')
+    console.log("Atualizado")
+  }
+
+  atualizarId = async (evento) => {
+    await this.setState({ idUser: evento.target.value })
+
+    console.log("Id Atualizado")
+  }
+
+  componentDidMount() {
+    this.buscarDesejo();
+
+  }
+
+  componentWillUnmount() {
+
+  }
+
+  render() {
+    return (
+      <body>
+        <section>
+          <div className="hamburger"><i className="fa fa-bars"></i></div>
+
+          <div className="center-header">
+            <div className="header-topo">
+              <div className="logo">
+                <img src={logo} alt="logo icone" className="icone"></img>
+                <img src={tipografia} alt="wish list tipografia" className="letra"></img>
+              </div>
+            </div>
+          </div>
+        </section>
+
+</body>
+)
 }
-
-render(){
-  
 }
-
-export default App;
+export default ListaDeDesejos;
