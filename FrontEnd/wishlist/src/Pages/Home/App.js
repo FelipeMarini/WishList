@@ -167,6 +167,7 @@ class Desejos extends Component {
   }
 
 
+
   LimparCampos = () => {
 
     this.setState({
@@ -266,26 +267,40 @@ class Desejos extends Component {
                 <div className="wish-bottom">
 
                   <div className="descricao2">
-                    <h3>Desejo de:</h3>
+                    <h3>DESEJO DE:</h3>
                     <p>email@exemplo.com</p>
-
-                    <img src={excluir} alt="lixeira para excluir desejo" />
-                    <img src={editar} alt="lápis para editar desejo" />
                   </div>
+
 
                   <div className="other">
 
                     <div className="desejo1">
+
                       <h3>DESCRIÇÃO</h3>
+
                       {
                         this.state.listaDesejos.map((desejo) => {
                           return (
-                            <p key={desejo.idDesejo}>
+                            <p>
                               {desejo.descricao}
+
+                              <div className="icons">
+
+                                <button id="lapis" className="btn-icon" onClick={() => this.BuscarDesejoPorId(desejo)}>
+                                  <img src={editar} alt="lápis para editar desejo" />
+                                </button>
+
+                                <button id="lixeira" className="btn-icon" onClick={() => this.ExcluirDesejo(desejo)}>
+                                  <img src={excluir} alt="lixeira para excluir desejo" />
+                                </button>
+
+                              </div>
+
                             </p>
                           )
                         })
                       }
+
                     </div>
 
                   </div>
