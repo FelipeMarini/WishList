@@ -16,7 +16,6 @@ class Desejos extends Component {
       listaDesejos: [],
       email: '',
       descricao: '',
-      data: '',
       idDesejoAlterado: 0
     }
 
@@ -56,13 +55,6 @@ class Desejos extends Component {
   }
 
 
-  AtualizaEstadoData = async (event) => {
-
-    await this.setState({ data: event.target.value })
-    console.log(this.state.data)
-
-  }
-
 
 
   CadastrarDesejo = (event) => {
@@ -77,7 +69,6 @@ class Desejos extends Component {
 
           body: JSON.stringify({
             descricao: this.state.descricao,
-            dataDesejo: this.state.data
           }),
 
           headers: { 'Content-Type': 'application/json' }
@@ -89,8 +80,7 @@ class Desejos extends Component {
           if (resposta.status === 204) {
             console.log(
               'Desejo ' + this.state.idDesejoAlterado + ' atualizado.',
-              'Seu novo desejo agora é: ' + this.state.titulo,
-              'Sua nova data agora é: ' + this.state.data
+              'Seu novo desejo agora é: ' + this.state.descricao,
             )
           }
 
@@ -109,9 +99,7 @@ class Desejos extends Component {
           method: 'POST',
 
           body: JSON.stringify({
-
             descricao: this.state.descricao,
-            dataDesejo: this.state.data
           }),
 
           headers: { 'Content-Type': 'application/json' }
@@ -184,7 +172,6 @@ class Desejos extends Component {
     this.setState({
       email: '',
       descricao: '',
-      data: '',
       idTipoEventoAlterado: 0
     })
 
@@ -228,10 +215,8 @@ class Desejos extends Component {
                 <p>Meus desejos</p>
               </div>
 
+
               <div className="azul-imputs">
-
-
-
 
                 <h2>ADICIONAR DESEJO</h2>
 
@@ -262,8 +247,6 @@ class Desejos extends Component {
                           name="fname"
                         />
                       </div>
-
-
 
                       <button type="submit" className="btn-cadastrar">
                         <img src={select} alt="ícone para adicionar um desejo" />
@@ -305,8 +288,6 @@ class Desejos extends Component {
                       }
                     </div>
 
-
-
                   </div>
 
                 </div>
@@ -316,17 +297,17 @@ class Desejos extends Component {
 
             </div>
 
-
           </div>
 
         </main>
 
       </div>
 
-
-
     )
   }
+
+
+
 
 }
 
